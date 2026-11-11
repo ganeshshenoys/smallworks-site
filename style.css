@@ -1,0 +1,4 @@
+:root{color-scheme:light dark}body{font:17px/1.6 -apple-system,"SF Pro Text",system-ui,sans-serif;max-width:720px;margin:0 auto;padding:48px 22px 96px;color:#111;background:#fff}
+@media(prefers-color-scheme:dark){body{color:#eee;background:#0b0b0f}a{color:#7DBBFF}}
+h1{font-size:40px;letter-spacing:-.04em;line-height:1.1;margin:0 0 8px}h2{font-size:22px;letter-spacing:-.02em;margin:40px 0 8px}small{color:#8a8a93}
+li{margin:6px 0}code{background:rgba(127,127,127,.18);padding:1px 6px;border-radius:6px}
