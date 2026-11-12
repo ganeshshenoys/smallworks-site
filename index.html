@@ -1,4 +1,268 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SmallWorks</title><link rel="stylesheet" href="style.css"></head><body>
-<h1>SmallWorks</h1>
-<p><a href="privacy.html">Privacy Policy</a> · <a href="support.html">Support</a></p>
-</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmallWorks: say it, get a widget</title>
+<meta name="description" content="SmallWorks is an iPhone app that makes the widgets you describe. Type what you want in plain words. It's built on your iPhone and goes on your Home Screen or Lock Screen.">
+<meta property="og:title" content="SmallWorks: say it, get a widget">
+<meta property="og:description" content="Describe a widget in plain words. SmallWorks builds it on your iPhone.">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f6f5f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#050506" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/icon-64.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon-64.png" alt="" width="30" height="30">SmallWorks</a>
+    <nav aria-label="Site">
+      <a href="#try">Try it</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero wrap">
+    <div class="label">SmallWorks for iPhone and iPad</div>
+    <div class="hero-grid">
+      <h1>Say it.<br>Get a widget.</h1>
+      <p class="lede">SmallWorks is an app that lives on your iPhone and makes the widgets you describe. Type what you want to see, in plain words. It's built on the device, and you put it on your Home Screen or Lock Screen.</p>
+    </div>
+    <div class="belt" id="belt" aria-label="Example widgets, each shown with the sentence that made it">
+      <div class="belt-track" id="belt-track"></div>
+    </div>
+    <div class="belt-notes">
+      <span>Each of these began as one sentence.</span>
+      <span>Made on the iPhone. Nothing is sent to a SmallWorks server.</span>
+    </div>
+  </div>
+
+  <section class="wrap" id="try">
+    <div class="try">
+      <div class="try-phone">
+        <div class="phone" id="phone">
+          <div class="screen" id="screen">
+            <div class="island-hw"></div>
+            <div class="status" aria-hidden="true">
+              <span>9:41</span>
+              <svg viewBox="0 0 70 14" fill="currentColor"><rect x="0" y="9" width="3.4" height="5" rx="1"/><rect x="5" y="6.5" width="3.4" height="7.500" rx="1"/><rect x="10" y="3.500" width="3.400" height="10.500" rx="1"/><rect x="15" y="0.500" width="3.400" height="13.500" rx="1"/><path d="M31.500 3.200c2.600 0 5 1 6.800 2.700l-1.500 1.600a7.700 7.700 0 0 0-10.600 0l-1.500-1.600a9.900 9.900 0 0 1 6.800-2.700zm0 4.300c1.500 0 2.800.6 3.800 1.500l-1.500 1.600a3.400 3.400 0 0 0-4.600 0L27.700 9a5.600 5.600 0 0 1 3.800-1.500zm0 4.200 1.600 1.800-1.600 1.700-1.600-1.700z"/><rect x="44.500" y="1.500" width="21" height="11.500" rx="3.500" fill="none" stroke="currentColor" opacity=".4"/><rect x="46.200" y="3.200" width="17.600" height="8.100" rx="2"/><rect x="67" y="5" width="1.800" height="4.500" rx=".9" opacity=".45"/></svg>
+            </div>
+
+            <!-- Widgets (the app's one screen) -->
+            <div class="scr on" id="s-home">
+              <div class="scroll" id="home-scroll">
+                <div class="home-top"><button class="round-btn" data-act="settings" aria-label="Settings"><svg data-i="dots"></svg></button></div>
+                <h3 class="ph-title">Widgets</h3>
+                <p class="ph-sub" id="home-count"></p>
+                <div class="grid" id="grid"></div>
+              </div>
+              <div class="bottom">
+                <div class="chips" id="home-chips"></div>
+                <button class="composer" data-act="make" aria-label="Describe a new widget">
+                  <svg data-i="sparkle"></svg><span id="home-hint">Describe a new widget…</span><i><svg data-i="right"></svg></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Widget detail -->
+            <div class="scr push" id="s-detail">
+              <div class="navbar">
+                <button class="round-btn" data-act="back" aria-label="Back"><svg data-i="back"></svg></button>
+                <span id="d-title"></span>
+                <span class="round-btn" aria-hidden="true"><svg data-i="dots"></svg></span>
+              </div>
+              <div class="detail-scroll" id="d-scroll">
+                <div class="stage" id="d-stage"></div>
+                <div class="seg" id="d-size" role="group" aria-label="Size">
+                  <button data-size="small">Small</button><button data-size="medium">Medium</button><button data-size="large">Large</button>
+                </div>
+                <p class="ph-label">Layout</p>
+                <div class="layouts" id="d-layouts"></div>
+                <p class="ph-label">Colour</p>
+                <div class="swatches" id="d-swatches"></div>
+                <div class="rows">
+                  <button data-act="look"><i><svg data-i="brush"></svg></i>Look<em id="d-look"></em><svg class="chev" data-i="chev"></svg></button>
+                  <button data-act="screens"><i><svg data-i="grid"></svg></i>On your screens<em>Show me</em><svg class="chev" data-i="chev"></svg></button>
+                  <div><i><svg data-i="lock"></svg></i>Data<em id="d-data"></em></div>
+                </div>
+              </div>
+              <div class="bottom">
+                <div class="working" id="d-working" hidden><svg data-i="sparkle"></svg>Working on this iPhone…</div>
+                <div class="chips" id="d-chips">
+                  <button class="ph-chip" data-change="calm">Make it calmer</button>
+                  <button class="ph-chip" data-change="dark">Dark version</button>
+                  <button class="ph-chip" data-change="playful">Make it playful</button>
+                </div>
+                <form class="composer" id="d-form">
+                  <svg data-i="sparkle"></svg><input id="d-input" placeholder="Describe a change…" aria-label="Describe a change" autocomplete="off" enterkeyhint="send">
+                  <button class="send" aria-label="Send" style="width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex:none"><svg data-i="up" style="width:16px;height:16px"></svg></button>
+                </form>
+              </div>
+              <div class="compare" id="compare">
+                <h3 class="sheet-h">Keep the<br>new one?</h3>
+                <p class="sheet-p">Nothing changes until you say so.</p>
+                <div class="stage">
+                  <figure><div id="c-old"></div><figcaption>Before</figcaption></figure>
+                  <figure><div id="c-new"></div><figcaption>After</figcaption></figure>
+                </div>
+                <div class="spacer"></div>
+                <button class="ink-btn" data-act="keep-change">Keep</button>
+                <button class="text-btn" data-act="drop-change">Discard</button>
+              </div>
+            </div>
+
+            <!-- Settings -->
+            <div class="scr push" id="s-settings">
+              <div class="navbar" style="padding-bottom:0"><button class="round-btn" data-act="back" aria-label="Back"><svg data-i="back"></svg></button></div>
+              <div class="detail-scroll" style="padding-bottom:30px">
+                <h3 class="ph-title">Settings</h3>
+                <div class="phone-card" id="set-card"></div>
+                <p class="set-label">Brain</p>
+                <div class="rows plain"><div>Default<em>Apple on-device</em></div><div>Models<em></em><svg class="chev" data-i="chev"></svg></div></div>
+                <p class="set-label">Privacy</p>
+                <div class="rows plain"><div>Connections<em id="set-sources"></em><svg class="chev" data-i="chev"></svg></div></div>
+                <p class="set-label">Data</p>
+                <div class="rows plain"><div class="danger">Delete all my data</div></div>
+                <p class="set-label">About</p>
+                <div class="rows plain"><div>Version<em>1.0</em></div></div>
+              </div>
+            </div>
+
+            <!-- Home Screen and Lock Screen -->
+            <div class="scr fade" id="s-spring" data-mode="home">
+              <div class="sb"><div class="sb-grid" id="sb-grid"></div><div class="sb-dock"><div class="app"></div><div class="app"></div><div class="app"></div><div class="app"></div></div></div>
+              <div class="ls"><div class="d">Thursday, 12 November</div><div class="t">9:41</div><div class="acc" id="ls-acc"></div></div>
+              <div class="sb-foot">
+                <button data-mode="home" aria-pressed="true">Home Screen</button>
+                <button data-mode="lock" aria-pressed="false">Lock Screen</button>
+                <button data-act="back">Back to app</button>
+              </div>
+            </div>
+
+            <!-- Make sheet -->
+            <div class="sheet" id="sheet" aria-hidden="true">
+              <div class="sheet-bar">
+                <button class="round-btn" data-act="close" aria-label="Close"><svg data-i="x"></svg></button>
+                <button class="round-btn inked" data-act="send" id="sheet-send" aria-label="Make it"><svg data-i="up"></svg></button>
+              </div>
+              <div class="sheet-body" id="sheet-body"></div>
+            </div>
+
+            <div class="tapdot" id="tapdot"></div>
+            <div class="home-ind"></div>
+          </div>
+        </div>
+        <p class="try-note mono">A scripted demo. The numbers are made up.</p>
+      </div>
+
+      <div class="try-copy">
+        <div class="intro">
+          <div class="label">Try it</div>
+          <h2 style="margin-top:14px">Tap around the app</h2>
+          <p class="body">This is the whole app: one screen of your widgets and a box to describe the next one. Tap the phone yourself, type your own idea, or pick something below and watch it happen.</p>
+        </div>
+        <div class="list">
+          <ul class="scenes" id="scenes"></ul>
+          <div class="try-foot"><button class="pill" id="restart">Start over</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="split">
+      <div>
+        <div class="label">How it works</div>
+        <h2 style="margin-top:14px">A widget is a small spec, not code.</h2>
+        <p class="body">The model on your iPhone doesn't write a program. It fills in a short form: what kind of widget, its words, its look. The app checks the form, and one native renderer draws it. <b>So a widget can only do what the form allows.</b></p>
+        <p class="body">The model is Apple's own on-device one. If your iPhone doesn't have it, SmallWorks can download one open model and run it on the device instead.</p>
+        <div class="brains"><span class="chip-brain">Apple on-device</span><span class="chip-brain">Qwen3 · MLX</span><span class="chip-brain">Qwen3.5 · MLX</span></div>
+      </div>
+      <div class="bench" style="--gap:12px">
+        <div class="spec" aria-label="An example widget spec">
+          <span class="label">Widget spec</span>
+          <div><span class="k">kind</span>countdown</div>
+          <div><span class="k">title</span>Lisbon</div>
+          <div><span class="k">date</span>2026-12-05</div>
+          <div><span class="k">symbol</span>airplane</div>
+          <div><span class="k">accent</span>blue</div>
+          <div><span class="k">surface</span>white</div>
+          <div><span class="k">website</span>none</div>
+        </div>
+        <div class="arrow-down" aria-hidden="true"></div>
+        <div id="spec-widget"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="split">
+      <div class="bench">
+        <div class="wire"><div class="wire-box"><svg data-i="grid"></svg></div><div class="wire-line"></div><div class="wire-host"><svg data-i="globe"></svg>api.coinbase.com</div></div>
+        <p class="wire-cap mono">The one wire a widget may have, after you tap Allow.</p>
+        <div class="wire"><div class="wire-box"><svg data-i="grid"></svg></div><div class="wire-line"></div><div class="wire-x"><svg data-i="x"></svg></div><div class="wire-line"></div><div class="wire-host" style="opacity:.6"><svg data-i="globe"></svg>anywhere else</div></div>
+        <p class="wire-cap mono" style="margin-bottom:0">Everything else stays unreachable.</p>
+      </div>
+      <div>
+        <div class="label">Privacy</div>
+        <h2 style="margin-top:14px">Your iPhone's data stays on your iPhone.</h2>
+        <ul class="promises">
+          <li>Calendar, Reminders and Health are read on the device, and only after iOS asks you.</li>
+          <li>No accounts, no analytics, no ads. SmallWorks has no server of its own.</li>
+          <li>A widget that needs the web gets one address, and only once you tap Allow.</li>
+          <li>Sharing a widget sends its design, never your counts or pictures.</li>
+        </ul>
+        <p class="body" style="font-size:16px">The details are in the <a href="privacy.html">privacy policy</a>, written in plain words.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="label">Everywhere else</div>
+    <h2 style="margin-top:14px">Out of the app, too.</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-art"><div class="lock-mini"><div class="d">Thursday, 12 November</div><div class="t">9:41</div><div class="acc"><div>Lisbon<b>23 days</b></div><div>Water<b>5 of 8</b></div></div></div></div>
+        <h3>Lock Screen</h3><p>The same widgets, drawn for the space under the clock.</p>
+      </div>
+      <div class="card">
+        <div class="card-art"><div class="island"><svg data-i="plane"></svg><span>Lisbon</span><span>23d 6h</span></div></div>
+        <h3>Live countdowns</h3><p>Follow a countdown as a Live Activity, in the Dynamic Island.</p>
+      </div>
+      <div class="card">
+        <div class="card-art"><div class="controls"><div class="control on"><svg data-i="drop"></svg></div><div class="control"><svg data-i="cup"></svg></div><div class="control"><svg data-i="plus"></svg></div></div></div>
+        <h3>One press to log</h3><p>Add a glass from Control Center, or ask Siri and Shortcuts to do it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap cta">
+    <img src="assets/icon-180.png" alt="SmallWorks app icon" width="96" height="96">
+    <h2>Make your own widgets.</h2>
+    <p class="body">For iPhone and iPad, on iOS 26 or later.</p>
+    <!-- When the app is live, replace this span with:
+         <a class="btn" href="https://apps.apple.com/app/idYOUR_ID">Get SmallWorks on the App Store</a> -->
+    <span class="btn soon">Coming soon to the App Store</span>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="grow">© 2026 Ganesh Shenoy</span>
+    <a href="privacy.html">Privacy</a>
+    <a href="support.html">Support</a>
+    <a href="mailto:ganeshshenoys@gmail.com">Contact</a>
+  </div>
+  <p class="fine">This site sets no cookies and loads nothing from anyone else. Apple, iPhone, iPad and App Store are trademarks of Apple Inc.</p>
+</footer>
+
+<script src="demo.js"></script>
+</body>
+</html>
