@@ -9,8 +9,8 @@
 <meta property="og:description" content="Describe a widget in plain words. SmallWorks builds it on your iPhone.">
 <meta property="og:image" content="assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#f6f5f3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#050506" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#edf0f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0d1a" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="assets/icon-64.png">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="stylesheet" href="styles.css">
@@ -29,20 +29,24 @@
 </header>
 
 <main>
+  <div class="hero-band">
   <div class="hero wrap">
     <div class="label">SmallWorks for iPhone and iPad</div>
     <div class="hero-grid">
-      <h1>Say it.<br>Get a widget.</h1>
+      <h1><em>Say it.</em><br>Get a widget.</h1>
       <p class="lede">SmallWorks is an app that lives on your iPhone and makes the widgets you describe. Type what you want to see, in plain words. It's built on the device, and you put it on your Home Screen or Lock Screen.</p>
     </div>
-    <div class="belt" id="belt" aria-label="Example widgets, each shown with the sentence that made it">
+  </div>
+  <div class="belt" id="belt" aria-label="Example widgets, each shown with the sentence that made it">
       <div class="belt-track" id="belt-track"></div>
     </div>
+  <div class="wrap">
     <div class="belt-notes">
       <span>Each of these began as one sentence.</span>
       <span>Made on the iPhone. Nothing is sent to a SmallWorks server.</span>
     </div>
   </div>
+</div>
 
   <section class="wrap" id="try">
     <div class="try">
@@ -243,14 +247,14 @@
     </div>
   </section>
 
-  <section class="wrap cta">
+  <section class="wrap cta"><div class="cta-panel">
     <img src="assets/icon-180.png" alt="SmallWorks app icon" width="96" height="96">
     <h2>Make your own widgets.</h2>
     <p class="body">For iPhone and iPad, on iOS 26 or later.</p>
     <!-- When the app is live, replace this span with:
          <a class="btn" href="https://apps.apple.com/app/idYOUR_ID">Get SmallWorks on the App Store</a> -->
     <span class="btn soon">Coming soon to the App Store</span>
-  </section>
+  </div></section>
 </main>
 
 <footer>
